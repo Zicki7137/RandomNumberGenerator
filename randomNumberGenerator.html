@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number Generator</title>
+  </head>
+  <style>
+    *{
+        background-color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    label{
+        font-size: 20px;
+    }
+    .fromNo, .toNo{
+        color: yellow;
+        font-size: 25px;
+    }
+
+    .generator {
+        color: yellow;
+        font-size: 30px;
+    }
+    
+  </style>
+
+  
+  <body>
+    <h1 style="color: white; text-align: center; font-size: 40px;">Random Number Generator</h1>
+
+    <section style="color: yellow; text-align: center;">
+      <label>From:</label><br />
+      <input type="number" class="fromNo"/><br />
+      <label>To:</label><br />
+      <input type="number" class="toNo" /><br /> <br>
+      <button type="submit" class="generator">Generate</button>
+    </section>
+
+    <div>
+      <h1 class="randomNumEl" style="color: white; text-align: center;"></h1>
+    </div>
+
+
+
+    <script>
+      const generator = document.querySelector(".generator");
+
+      generator.addEventListener("click", generatenumber);
+
+      function generatenumber() {
+        const fromNo = document.querySelector(".fromNo").value;
+        const toNo = document.querySelector(".toNo").value;
+
+        randomNum = Math.floor(Math.random() * parseInt(toNo));
+
+        if (randomNum >= parseInt(fromNo)) {
+          const randomNumEl = document.querySelector(".randomNumEl");
+          randomNumEl.innerHTML = randomNum;
+        }
+      }
+    </script>
+  </body>
+</html>
